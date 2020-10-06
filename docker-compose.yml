@@ -1,0 +1,8 @@
+version: '2.3'
+services:
+  service:
+    build: ./
+    restart: always
+    ports:
+      - '1935:1935'
+    user: '1000'
