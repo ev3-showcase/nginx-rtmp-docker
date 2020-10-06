@@ -54,7 +54,11 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 
 RUN chgrp -R 0 /etc/nginx && \
-    chmod -R g=u /etc/nginx
+    chmod -R g=u /etc/nginx \
+    chgrp -R 0 /var/run/nginx && \
+    chmod -R g=u /var/run/nginx \
+    chgrp -R 0 /var/tmp/nginx && \
+    chmod -R g=u /var/tmp/nginx \
 
-EXPOSE 1935
+    EXPOSE 1935
 CMD ["nginx", "-g", "daemon off;"]
